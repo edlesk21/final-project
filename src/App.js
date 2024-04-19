@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-function MagicButton(){
+function MagicButton() {
   return(
     <button>Magic</button>
   );
@@ -24,7 +24,7 @@ function App() {
           Learn React with E.J. and MSU! and the goons!
         </a>
       </header>
-      <MagicButton />
+      <MagicButton/>
     </div>
   );
 }
