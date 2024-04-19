@@ -24,6 +24,7 @@ function App() {
           Learn React with E.J. and MSU! and the NBA!
         </a>
       </header>
+      <MagicButton />
     </div>
   );
 }
