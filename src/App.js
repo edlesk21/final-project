@@ -21,7 +21,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React with E.J. and MSU! and the NBA!
+          Learn React with E.J. and MSU! and the goons!
         </a>
       </header>
       <MagicButton />
