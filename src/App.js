@@ -23,8 +23,8 @@ function App() {
         >
           Learn React with E.J. and MSU! and the goons!
         </a>
+        <MagicButton/>
       </header>
-      <MagicButton/>
     </div>
   );
 }
