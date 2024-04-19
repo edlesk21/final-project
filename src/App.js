@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React with E.J. and MSU!
+          Learn React with E.J. and MSU! and the NBA!
         </a>
       </header>
     </div>
