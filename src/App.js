@@ -3,7 +3,7 @@ import './App.css';
 import { getTeams } from './supabaseClient.js';
 import { getPlayers } from './supabaseClient';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, ListGroup, Container, Row, Col, Card } from 'react-bootstrap';
+import {ListGroup, Container, Row, Col, Card } from 'react-bootstrap';
 <link
   rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -23,9 +23,6 @@ function App() {
   return (
     <Container className="p-3">
       <Row className="mb-3">
-        <Col>
-          <Button variant="primary" onClick={() => getTeams().then(setTeams)}>Generate NBA Team</Button>
-        </Col>
       </Row>
       <Row>
         {teams.map((team, index) => (
