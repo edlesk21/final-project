@@ -11,56 +11,86 @@ import {ListGroup, Container, Row, Col, Card } from 'react-bootstrap';
   crossorigin="anonymous"
 />
 
+function TeamCard({ team, player }) {
+  return (
+    <Col xs={12} md={4} className="mb-3">
+      <Card>
+        <Card.Header>{`${team.full_name} | ${team.conference} | ${team.division}`}</Card.Header>
+        <ListGroup variant="flush">
+          {player ? (
+            <ListGroup.Item>
+              Points: {player.ppg_leader} - {player.ppg} PPG
+            </ListGroup.Item>
+          ) : (
+            <ListGroup.Item>No Player Data</ListGroup.Item>
+          )}
+        </ListGroup>
+        <ListGroup variant="flush">
+          {player ? (
+            <ListGroup.Item>
+              Rebounds: {player.rpg_leader} - {player.rpg} RPG
+            </ListGroup.Item>
+          ) : (
+            <ListGroup.Item>No Player Data</ListGroup.Item>
+          )}
+        </ListGroup>
+        <ListGroup variant="flush">
+          {player ? (
+            <ListGroup.Item>
+              Assists: {player.apg_leader} - {player.apg} APG
+            </ListGroup.Item>
+          ) : (
+            <ListGroup.Item>No Player Data</ListGroup.Item>
+          )}
+        </ListGroup>
+        <ListGroup variant="flush">
+          {player ? (
+            <ListGroup.Item>
+              Steals: {player.spg_leader} - {player.apg} SPG
+            </ListGroup.Item>
+          ) : (
+            <ListGroup.Item>No Player Data</ListGroup.Item>
+          )}
+        </ListGroup>
+        <ListGroup variant="flush">
+          {player ? (
+            <ListGroup.Item>
+              Blocks: {player.bpg_leader} - {player.apg} BPG
+            </ListGroup.Item>
+          ) : (
+            <ListGroup.Item>No Player Data</ListGroup.Item>
+          )}
+        </ListGroup>
+      </Card>
+    </Col>
+  );
+}
+
 function App() {
   const [teams, setTeams] = useState([]);
-  const [leaderIds, setLeaderIds] = useState([]);
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
-    getTeams().then(fetchedTeams => setTeams(fetchedTeams));
-    getPlayers().then(fetchedIds => setLeaderIds(fetchedIds));
+    getTeams().then(fetchedTeams => {
+      setTeams(fetchedTeams);
+      getPlayers().then(fetchedPlayers => {
+        setPlayers(fetchedPlayers);
+      });
+    });
   }, []);
 
   return (
     <Container className="p-3">
-      {/* Header Section */}
       <Row className="mb-4">
-        <Col>
-          <h1 className="text-center">NBA Stat Leaders for the 2023-2024 Season</h1>
-          <hr />
-        </Col>
+          <Col>
+            <h1 className="text-center">NBA Stat Leaders for the 2023-2024 Season</h1>
+            <hr />
+          </Col>
       </Row>
-      {/* Cards Section */}
       <Row>
-        {teams.map((team, teamIndex) => {
-          // Find the leader data for the current team
-          const teamLeaders = leaderIds.filter(leader => leader.team_id === team.id);
-
-          return (
-            <Col xs={12} md={4} key={teamIndex} className="mb-3">
-              <Card>
-                <Card.Header>{`${team.full_name} | ${team.conference} | ${team.division}`}</Card.Header>
-                <ListGroup variant="flush">
-                  {leaderIds.map((player, index) => (
-                    <ListGroup.Item key={index}> {player.stat_title}: {player.ppg_leader} - {player.ppg}</ListGroup.Item>
-                  ))}
-                </ListGroup>
-              </Card>
-            </Col>
-          );
-        })}
-      </Row>
-      {/* Leader IDs Section */}
-      <Row>
-        <Col xs={12}>
-          <Card>
-            <Card.Header as="h5">Leader IDs</Card.Header>
-            <ListGroup variant="flush">
-              {leaderIds.map((player, index) => (
-                <ListGroup.Item key={index}>{player.ppg_leader} - {player.ppg}</ListGroup.Item>
-              ))}
-            </ListGroup>
-          </Card>
-        </Col>
+        {teams.map((team, index) => (
+          <TeamCard team={team} player={players[index]} key={team.id} />
+        ))}
       </Row>
     </Container>
   );
