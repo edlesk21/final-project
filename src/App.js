@@ -28,19 +28,20 @@ function App() {
         </Col>
       </Row>
       <Row>
-        <Col xs={12} md={6}>
-          <Card>
-            <Card.Header as="h5">NBA Teams</Card.Header>
-            <ListGroup variant="flush">
-              {teams.map((team, index) => (
-                <ListGroup.Item key={index}>
-                  {team.full_name} - {team.conference} - {team.division}
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          </Card>
-        </Col>
-        <Col xs={12} md={6}>
+        {teams.map((team, index) => (
+          <Col xs={12} md={4} key={index} className="mb-3">
+            <Card>
+              <Card.Header>{team.full_name}</Card.Header>
+              <ListGroup variant="flush">
+                <ListGroup.Item>Conference: {team.conference}</ListGroup.Item>
+                <ListGroup.Item>Division: {team.division}</ListGroup.Item>
+              </ListGroup>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+      <Row>
+        <Col xs={12}>
           <Card>
             <Card.Header as="h5">Leader IDs</Card.Header>
             <ListGroup variant="flush">
