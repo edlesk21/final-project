@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { getTeams } from './supabaseClient.js';
-import { getPlayers } from './supabaseClient';
+import { getPlayers } from './supabaseClient.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {ListGroup, Container, Row, Col, Card } from 'react-bootstrap';
 <link
@@ -84,7 +84,7 @@ function App() {
       <Row className="mb-4">
           <Col>
             <h1 className="text-center">NBA Stat Leaders for the 2023-2024 Season</h1>
-            <hr />
+            <hr/>
           </Col>
       </Row>
       <Row>
@@ -95,5 +95,4 @@ function App() {
     </Container>
   );
 }
-
 export default App;
