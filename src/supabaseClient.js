@@ -10,9 +10,9 @@ export async function getTeams(){
 
     if (error) {
         console.error('Error fetching teams:', error);
-        return []; // Return empty array or handle error appropriately
+        return []; 
     }
-    return teams; // Just return the data
+    return teams;
 }
 
 export async function getPlayers(){
@@ -22,7 +22,7 @@ export async function getPlayers(){
 
     if (error) {
         console.error('Error fetching leaders:', error);
-        return []; // Return empty array or handle error appropriately
+        return []; 
     }
-    return leaders; // Just return the data
+    return leaders;
 }
