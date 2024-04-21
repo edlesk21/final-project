@@ -15,7 +15,7 @@ function TeamCard({ team, player }) {
   return (
     <Col xs={12} md={4} className="mb-3">
       <Card style={{ backgroundColor: '#D2B48C', borderColor: 'black', borderWidth: '2px', borderStyle: 'solid'}}>
-        <Card.Header className="text-center" style={{ fontWeight: 'bold', backgroundColor:'#E5D3B3'}}>{`${team.full_name} | ${team.conference} | ${team.division}`}</Card.Header>
+        <Card.Header className="text-center" style={{ fontWeight: 'bold'}}>{`${team.full_name} | ${team.conference} | ${team.division}`}</Card.Header>
         <ListGroup variant="flush">
           {player ? (
             <ListGroup.Item>
