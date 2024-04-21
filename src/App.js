@@ -32,7 +32,7 @@ function App() {
       <h2>Leader IDs</h2>
       <ul>
         {leaderIds.map((player, index) => (
-          <li key={index}>{player.ppg_leader}</li>
+          <li key={index}>{player.ppg_leader} - {player.ppg}</li>
         ))}
       </ul>
     </div>
