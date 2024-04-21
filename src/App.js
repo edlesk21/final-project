@@ -22,21 +22,29 @@ function App() {
 
   return (
     <Container className="p-3">
-      <Row className="mb-3">
+      {/* Header Section */}
+      <Row className="mb-4">
+        <Col>
+          <h1 className="text-center">NBA Stat Leaders for the 2023-2024 Season</h1>
+          <hr />
+        </Col>
       </Row>
+      {/* Cards Section */}
       <Row>
         {teams.map((team, index) => (
           <Col xs={12} md={4} key={index} className="mb-3">
             <Card>
               <Card.Header>{`${team.full_name}  |  ${team.conference}  |  ${team.division}`}</Card.Header>
               <ListGroup variant="flush">
-                <ListGroup.Item>Conference: {team.conference}</ListGroup.Item>
-                <ListGroup.Item>Division: {team.division}</ListGroup.Item>
+                {/* Replace with actual player stats */}
+                <ListGroup.Item>Points Per Game: Player name and Stats</ListGroup.Item>
+                {/* Add more stats as needed */}
               </ListGroup>
             </Card>
           </Col>
         ))}
       </Row>
+      {/* Leader IDs Section */}
       <Row>
         <Col xs={12}>
           <Card>
