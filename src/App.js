@@ -31,18 +31,23 @@ function App() {
       </Row>
       {/* Cards Section */}
       <Row>
-        {teams.map((team, index) => (
-          <Col xs={12} md={4} key={index} className="mb-3">
-            <Card>
-              <Card.Header>{`${team.full_name}  |  ${team.conference}  |  ${team.division}`}</Card.Header>
-              <ListGroup variant="flush">
-                {/* Replace with actual player stats */}
-                <ListGroup.Item>Points Per Game: Player name and Stats</ListGroup.Item>
-                {/* Add more stats as needed */}
-              </ListGroup>
-            </Card>
-          </Col>
-        ))}
+        {teams.map((team, teamIndex) => {
+          // Find the leader data for the current team
+          const teamLeaders = leaderIds.filter(leader => leader.team_id === team.id);
+
+          return (
+            <Col xs={12} md={4} key={teamIndex} className="mb-3">
+              <Card>
+                <Card.Header>{`${team.full_name} | ${team.conference} | ${team.division}`}</Card.Header>
+                <ListGroup variant="flush">
+                  {leaderIds.map((player, index) => (
+                    <ListGroup.Item key={index}> {player.stat_title}: {player.ppg_leader} - {player.ppg}</ListGroup.Item>
+                  ))}
+                </ListGroup>
+              </Card>
+            </Col>
+          );
+        })}
       </Row>
       {/* Leader IDs Section */}
       <Row>
