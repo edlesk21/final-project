@@ -31,7 +31,7 @@ function App() {
         {teams.map((team, index) => (
           <Col xs={12} md={4} key={index} className="mb-3">
             <Card>
-              <Card.Header>{`${team.full_name} | ${team.conference} | ${team.division}`}</Card.Header>
+              <Card.Header>{`${team.full_name}  |  ${team.conference}  |  ${team.division}`}</Card.Header>
               <ListGroup variant="flush">
                 <ListGroup.Item>Conference: {team.conference}</ListGroup.Item>
                 <ListGroup.Item>Division: {team.division}</ListGroup.Item>
